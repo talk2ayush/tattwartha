@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tattwartha Power | Electronic Components & Design Services</title>
+<meta name="description" content="Tattwartha Power — genuine electronic components, PCB design, embedded systems and power electronics solutions. Pan India fast delivery.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--p:#5b1a7a;--pd:#3f0f58;--pl:#f3e9f8;--bg:#f6f7fb;--tx:#1f2937;--mut:#6b7280;--bd:#e5e7eb;--g:#16a34a;--r:12px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--tx);background:#fff;font-size:14px;line-height:1.55}
+h1,h2,h3,h4{font-family:'Outfit',sans-serif;color:#111827;line-height:1.2}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer}
+.wrap{width:min(1240px,94%);margin-inline:auto}
+.hide{display:none!important}
+
+/* topbar / header */
+.topbar{border-bottom:1px solid var(--bd);font-size:12px;padding:7px 0}
+.topbar .wrap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.topbar span{margin-right:16px;color:#374151}
+.hdr{background:#fff;position:sticky;top:0;z-index:40}
+.hdr-main{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px;padding:12px 0}
+.logo{display:flex;align-items:center;gap:8px}
+.logo-box{width:42px;height:42px;background:var(--p);border-radius:8px;display:grid;place-items:center}
+.logo-box svg{width:26px;height:26px;fill:#fff}
+.logo-txt{font:700 19px 'Outfit';color:var(--p);letter-spacing:.02em;line-height:1}
+.logo-txt small{display:block;font:600 11px 'Outfit';letter-spacing:.32em;margin-top:3px}
+.search{display:flex;max-width:560px;margin-inline:auto;width:100%;align-items:center;gap:12px}
+.sbox{display:flex;flex:1;border:1px solid var(--bd);border-radius:6px;overflow:hidden}
+.sbox select{border:0;border-right:1px solid var(--bd);padding:0 8px;font-size:12px;background:#f9fafb;max-width:110px}
+.sbox input{flex:1;border:0;padding:10px 12px;font-size:13px;outline:0;min-width:0}
+.sbox button{background:var(--p);border:0;color:#fff;padding:0 16px;font-size:15px}
+.instock{font-size:12px;display:flex;align-items:center;gap:5px;white-space:nowrap}
+.hdr-r{display:flex;gap:14px;align-items:center;font-size:13px}
+.hdr-r a,.hdr-r button{background:none;border:0;font-size:13px;color:#111}
+.hdr-r .cart{position:relative}
+.hdr-r .cart b{position:absolute;top:-8px;right:-10px;background:var(--p);color:#fff;border-radius:50%;font-size:10px;min-width:16px;height:16px;display:grid;place-items:center}
+.navbar{border-top:1px solid var(--bd);border-bottom:1px solid var(--bd)}
+.navbar .wrap{display:flex;align-items:center;justify-content:space-between;min-height:42px;position:relative}
+.catbtn{background:none;border:0;font:600 12px 'Outfit';letter-spacing:.06em;color:#111;display:flex;gap:8px;align-items:center}
+.navl{display:flex;gap:34px;position:absolute;left:50%;transform:translateX(-50%)}
+.navl a{font-size:12.5px;color:#6b7280;font-weight:500}
+.navl a.on,.navl a:hover{color:var(--p)}
+.fast{font-size:12px;display:flex;gap:6px;align-items:center}
+.burger{display:none;background:none;border:0;font-size:22px}
+
+/* drawer */
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:90;opacity:0;pointer-events:none;transition:.25s}
+.ov.open{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;left:0;bottom:0;width:300px;max-width:88vw;background:#fff;z-index:100;transform:translateX(-100%);transition:.3s;padding:22px 20px;overflow-y:auto;box-shadow:6px 0 24px rgba(0,0,0,.15)}
+.drawer.open{transform:none}
+.drawer .dh{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}
+.drawer h3{font-size:16px;font-weight:500;display:flex;justify-content:space-between;margin-bottom:14px}
+.drawer h3 button{background:none;border:0;font-size:20px}
+.cat-i{border-bottom:0}
+.cat-r{display:flex;justify-content:space-between;align-items:center;padding:9px 0}
+.cat-r a{font-size:14px;color:#2d2d2d;flex:1}
+.cat-r a:hover{color:var(--p)}
+.plus{width:20px;height:20px;border:1.8px solid #111;border-radius:4px;background:none;font-size:14px;line-height:1;display:grid;place-items:center;font-weight:700}
+.subs{display:none;padding:0 0 8px 14px;border-left:2px solid var(--pl);margin:0 0 6px 4px}
+.cat-i.open .subs{display:block}
+.subs a{display:block;padding:6px 0;font-size:13px;color:#4b5563}
+.subs a:hover{color:var(--p)}
+
+/* hero */
+.hero{position:relative;border-radius:10px;overflow:hidden;margin:16px 0;height:340px;background:#07162f}
+.slide{position:absolute;inset:0;display:flex;align-items:center;padding:0 5%;opacity:0;transition:opacity .7s;background:linear-gradient(110deg,#06142b 30%,#0b3b66 100%)}
+.slide.on{opacity:1}
+.slide svg.bgc{position:absolute;inset:0;width:100%;height:100%;opacity:.55}
+.slide .in{position:relative;z-index:2;max-width:560px}
+.brandbox{display:inline-flex;align-items:center;gap:10px;border:3px solid #fff;padding:6px 14px;margin-bottom:22px;background:rgba(0,0,0,.25)}
+.brandbox .logo-box{width:38px;height:38px;background:#fff;border-radius:4px}
+.brandbox .logo-box svg{fill:#06142b}
+.brandbox div{font:700 24px 'Outfit';color:#fff;line-height:1;letter-spacing:.03em}
+.brandbox small{display:block;font-size:12px;letter-spacing:.3em;margin-top:3px}
+.slide h2{color:#fff;font-size:clamp(1.5rem,3.2vw,2.5rem);margin-bottom:10px}
+.slide p{color:#cfe0f5;font-size:1.05rem}
+.dots{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:3}
+.dots i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.4);cursor:pointer}
+.dots i.on{background:#f59e0b}
+.glow{position:absolute;right:6%;top:50%;transform:translateY(-50%);width:320px;z-index:1}
+
+/* cat carousel */
+.carw{display:flex;align-items:center;gap:8px;margin-bottom:34px}
+.car-ar{background:#fff;border:0;font-size:22px;color:#6b7280;width:26px}
+.carr{display:flex;gap:10px;overflow-x:auto;scroll-behavior:smooth;scrollbar-width:none;flex:1}
+.carr::-webkit-scrollbar{display:none}
+.cc{flex:0 0 118px;border:1px solid var(--bd);border-radius:6px;padding:10px 6px;text-align:center;font-size:10.5px;background:#fff;transition:.2s}
+.cc:hover{border-color:var(--p);box-shadow:0 6px 16px rgba(91,26,122,.15)}
+.cc svg{width:50px;height:38px;display:block;margin:0 auto 6px}
+
+/* section head */
+.sh{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin:10px 0 14px;flex-wrap:wrap}
+.sh h3{font-size:16px;font-weight:600}
+.sh p{font-size:11px;color:var(--p)}
+.tabs{display:flex;gap:18px;overflow-x:auto;scrollbar-width:none}
+.tabs button{background:none;border:0;border-bottom:2px solid transparent;font:600 10px 'Inter';letter-spacing:.08em;padding:4px 0;white-space:nowrap}
+.tabs button.on{border-color:currentColor}
+.view{background:#f3f4f6;border:0;border-radius:4px;padding:5px 10px;font-size:11px}
+
+/* product cards */
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px}
+.prow{display:flex;gap:14px;overflow-x:auto;scroll-behavior:smooth;scrollbar-width:none;flex:1}
+.prow::-webkit-scrollbar{display:none}
+.prow .pcard{flex:0 0 200px}
+.pcard{position:relative;border:1px solid var(--bd);border-radius:6px;background:#fff;display:flex;flex-direction:column;overflow:hidden;transition:.2s}
+.pcard:hover{box-shadow:0 8px 22px rgba(0,0,0,.09)}
+.badge{position:absolute;top:8px;left:8px;font:700 8px 'Inter';letter-spacing:.05em;padding:3px 6px;border-radius:3px;z-index:2}
+.b-in{background:#dcfce7;color:#15803d}.b-low{background:#dbeafe;color:#1d4ed8}.b-out{background:#fee2e2;color:#dc2626}
+.wish{position:absolute;top:6px;right:6px;width:24px;height:24px;border:1px solid var(--bd);background:#fff;border-radius:4px;font-size:12px;color:#6b7280;z-index:2}
+.wish.on{color:#dc2626}
+.pimg{height:100px;display:grid;place-items:center;padding:14px 10px 0;background:#fff}
+.pimg svg{height:80px;width:auto;max-width:100%}
+.pbody{padding:10px 12px 12px;display:flex;flex-direction:column;gap:6px;flex:1}
+.pill{align-self:flex-start;background:var(--pl);border:1px solid #e3cdef;color:var(--p);font:600 8px 'Inter';letter-spacing:.04em;text-transform:uppercase;padding:2px 6px;border-radius:3px}
+.pn{font:600 12.5px 'Outfit';color:#111827;word-break:break-all}
+.pdsc{font-size:10.5px;color:#6b7280;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:30px}
+.mfr{display:flex;gap:6px;align-items:center;font-size:10px;background:#f3f4f6;padding:5px 7px;border-radius:4px}
+.mfr small{color:#9ca3af;font-size:8px;font-weight:700}
+.price{font:700 15px 'Outfit';color:var(--p);margin-top:auto}
+.buy{display:flex;gap:6px}
+.buy input{width:44px;border:1px solid var(--bd);border-radius:4px;text-align:center;font-size:12px;padding:5px 2px}
+.buy button{flex:1;background:var(--p);color:#fff;border:0;border-radius:4px;font-size:10.5px;font-weight:600;padding:6px}
+.buy button:disabled{background:#e5e7eb;color:#9ca3af;cursor:not-allowed}
+
+/* promos */
+.pr-grid{display:grid;grid-template-columns:1.9fr 1fr;gap:14px;margin:36px 0 30px}
+.pr-big{border-radius:10px;background:linear-gradient(120deg,#eef2ff,#dbe6ff);position:relative;overflow:hidden;display:flex;align-items:center;min-height:340px}
+.pr-big svg.pedestal{position:absolute;left:4%;top:50%;transform:translateY(-50%);width:44%}
+.pr-big .tx{margin-left:52%;padding:20px 20px 20px 0}
+.pr-big small{font-size:11px;color:#4b5563}
+.pr-big h3{font-size:1.15rem;margin:6px 0 14px;color:#1e3a8a}
+.shopnow{display:inline-block;background:var(--p);color:#fff;font:700 10px 'Inter';letter-spacing:.08em;padding:8px 18px;border-radius:3px}
+.pr-col{display:grid;gap:14px}
+.pr-sm{border-radius:10px;background:linear-gradient(120deg,#eef2ff,#e0e7ff);display:flex;align-items:center;gap:10px;padding:16px;min-height:163px}
+.pr-sm svg{width:42%;flex:0 0 42%}
+.pr-sm h4{font-size:12px;color:#1e3a8a;margin-bottom:4px;word-break:break-all}
+.pr-sm b{display:block;font:700 15px 'Outfit';color:var(--p);margin-bottom:8px}
+.fd{border:2px solid var(--p);border-radius:6px;display:grid;grid-template-columns:1fr 2fr 1fr;align-items:center;padding:14px 22px;font-size:12px;margin-bottom:22px;gap:10px}
+.fd b{font:700 13px 'Outfit';letter-spacing:.04em;display:flex;gap:10px;align-items:center}
+.fd div:nth-child(2){text-align:center}
+.fd div:last-child{text-align:right;font:700 14px 'Outfit'}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-radius:8px;overflow:hidden;margin-bottom:34px}
+.tile{display:flex;align-items:center;gap:10px;padding:16px;background:linear-gradient(120deg,#e8efff,#d8e4ff);border-right:2px solid #fff;font-size:11px}
+.tile svg{width:64px;flex:0 0 64px}
+.tile h5{font:600 11px 'Outfit';color:#1e3a8a;margin-bottom:2px;word-break:break-all}
+.tile b{display:block;color:var(--p);font:700 13px 'Outfit';margin-bottom:5px}
+.tile .shopnow{padding:0;background:none;color:#111;font-size:9px;text-decoration:underline}
+
+/* page heads */
+.ph{text-align:center;padding:34px 0 28px;border-bottom:1px solid var(--bd);margin-bottom:30px}
+.ph .tg{font:600 11px 'Outfit';color:var(--p);letter-spacing:.06em}
+.ph h1{font-size:30px;margin:6px 0 10px}
+.ph p{font-size:12.5px;color:var(--mut);max-width:520px;margin-inline:auto}
+.card{background:#fff;border:1px solid var(--bd);border-radius:8px}
+
+/* about */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:22px}
+.stat{padding:20px;text-align:center}
+.stat b{display:block;font:700 26px 'Outfit';color:var(--p)}
+.stat span{font-size:12px;color:var(--mut)}
+.who{padding:26px;display:grid;grid-template-columns:1.8fr 1fr;gap:26px;margin-bottom:22px;align-items:center}
+.who h3{font-size:18px;margin-bottom:12px}
+.who p{font-size:12.5px;margin-bottom:10px;color:#374151}
+.who .img{border-radius:8px;overflow:hidden}
+.mission{background:#eaf1fb;border:1px solid #cfdcf0;border-radius:8px;text-align:center;padding:30px;margin-bottom:30px}
+.mission h3{color:var(--pd);font-size:19px;margin-bottom:10px}
+.mission p{max-width:640px;margin-inline:auto;font-size:13px;color:#374151}
+h3.sec{font-size:19px;margin:6px 0 14px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:30px}
+.g2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:30px}
+.feat{padding:18px}
+.feat .ic{width:34px;height:34px;border-radius:50%;background:var(--pl);color:var(--p);display:grid;place-items:center;margin-bottom:10px;font-size:15px}
+.feat h4{font-size:13.5px;margin-bottom:5px}
+.feat p{font-size:11.5px;color:var(--mut)}
+.offer{padding:18px;display:flex;gap:14px;align-items:flex-start}
+.offer .ic{flex:0 0 34px;height:34px;border-radius:8px;background:var(--pl);color:var(--p);display:grid;place-items:center}
+.cta2{padding:26px;text-align:center}
+.cta2 h4{font-size:16px;margin-bottom:6px}
+.cta2 p{font-size:12px;color:var(--mut);margin-bottom:14px}
+.btn{display:inline-block;background:var(--p);color:#fff;border:0;border-radius:5px;padding:9px 18px;font:600 12px 'Inter'}
+.btn:hover{background:var(--pd)}
+
+/* services */
+.sv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:50px}
+.sv{overflow:hidden;display:flex;flex-direction:column;transition:.25s}
+.sv:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,.1)}
+.sv-i{height:160px;overflow:hidden}
+.sv-i svg{width:100%;height:100%;display:block}
+.sv-b{padding:16px;display:flex;flex-direction:column;flex:1}
+.sv-b h4{font-size:12.5px;color:#1e3a8a;margin-bottom:8px}
+.sv-b p{font-size:11.5px;color:#6b7280;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:14px}
+.rm{margin-top:auto;background:none;border:0;font:600 11px 'Outfit';color:var(--p);text-align:left;padding:0}
+
+/* shop */
+.filters{border:1px solid var(--bd);border-radius:4px;margin-bottom:12px}
+.fh{display:flex;justify-content:space-between;align-items:center;background:#f3f4f6;padding:7px 12px;font:600 10px 'Inter';letter-spacing:.06em}
+.fh .cnt{background:var(--p);color:#fff;border-radius:50%;width:15px;height:15px;display:inline-grid;place-items:center;font-size:9px;margin-left:5px}
+.fh button{border:1px solid #fca5a5;background:#fff;color:#dc2626;font-size:9px;padding:3px 8px;border-radius:3px}
+.fcols{display:grid;grid-template-columns:repeat(5,1fr)}
+.fcol{padding:10px 12px;border-right:1px solid var(--bd)}
+.fcol:last-child{border:0}
+.fcol h6{font:700 9px 'Inter';letter-spacing:.08em;color:#6b7280;margin-bottom:6px;text-transform:uppercase}
+.fl{max-height:118px;overflow-y:auto;font-size:11px}
+.fl label{display:flex;align-items:center;gap:6px;padding:2px 0;cursor:pointer}
+.fl label:hover{color:var(--p)}
+.fl em{color:#9ca3af;font-style:normal;font-size:9px;margin-left:auto}
+.fbot{display:flex;gap:14px;align-items:center;border-top:1px solid var(--bd);padding:7px 12px;font-size:11px}
+.fbot select{border:1px solid var(--bd);border-radius:4px;padding:3px 6px;font-size:11px}
+.tb{display:flex;justify-content:space-between;align-items:center;background:#f3f4f6;padding:6px 12px;border-radius:4px;margin-bottom:10px;font-size:11px}
+.tb .l{display:flex;gap:10px;align-items:center}
+.tb .vb{border:1px solid var(--bd);background:#fff;padding:3px 7px;border-radius:3px;font-size:12px}
+.tb .vb.on{background:var(--pl);border-color:var(--p);color:var(--p)}
+.tb select{border:1px solid var(--bd);border-radius:4px;padding:3px 6px;font-size:11px}
+.within{width:100%;border:1px solid var(--bd);border-radius:4px;padding:8px 12px;font-size:12px;margin-bottom:10px;outline:0}
+.tbl{width:100%;border-collapse:collapse;font-size:11.5px;margin-bottom:30px}
+.tbl th{background:var(--p);color:#fff;text-align:left;padding:9px 10px;font:600 10px 'Inter';letter-spacing:.04em}
+.tbl td{padding:9px 10px;border-bottom:1px solid var(--bd);vertical-align:middle}
+.tbl td svg{height:44px;width:auto}
+.tbl .pn{font-size:12.5px}
+.tbl small{color:#6b7280;display:block;font-size:10px}
+.st{font:700 9px 'Inter';padding:3px 7px;border-radius:3px;white-space:nowrap}
+.tbl .qty{display:flex;gap:5px}
+.tbl .qty input{width:46px;border:1px solid var(--bd);border-radius:4px;text-align:center;padding:4px 2px;font-size:11px}
+.tbl .qty button{background:var(--p);color:#fff;border:0;border-radius:4px;font-size:10px;padding:4px 9px}
+.tbl .qty button:disabled{background:#e5e7eb;color:#9ca3af}
+.none{text-align:center;padding:40px;color:#6b7280;font-size:12px}
+.feats{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;text-align:center;border-top:1px solid var(--bd);padding:30px 0;margin-top:20px}
+.feats .ic{font-size:26px;color:#111}
+.feats b{display:block;font:600 12px 'Outfit';margin-top:6px}
+.feats span{font-size:9.5px;color:var(--mut)}
+
+/* blog */
+.blog{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:50px}
+.bl .sv-i{height:150px}
+.bl small{color:var(--p);font-size:10px;font-weight:600}
+
+/* footer */
+footer{border-top:1px solid var(--bd);margin-top:10px;padding:34px 0 0;font-size:11.5px}
+.fg{display:grid;grid-template-columns:1.2fr 1fr 1fr 1.5fr;gap:30px;padding-bottom:26px}
+.fg h5{font:600 13px 'Outfit';margin-bottom:12px}
+.fg ul{list-style:none}
+.fg li{margin-bottom:8px;color:#4b5563}
+.fg a:hover{color:var(--p)}
+.fg .ph2{font:700 15px 'Outfit';color:var(--p);margin:8px 0}
+.sub{display:flex;margin:8px 0}
+.sub input{flex:1;border:1px solid var(--bd);padding:8px 10px;font-size:11px;border-radius:3px 0 0 3px;min-width:0}
+.sub button{background:var(--p);color:#fff;border:0;padding:0 14px;font:700 10px 'Inter';border-radius:0 3px 3px 0}
+.copy{border-top:1px solid var(--bd);padding:14px 0;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;font-size:10.5px}
+.pay span{border:1px solid var(--bd);border-radius:3px;padding:2px 6px;margin-left:5px;font-weight:700;color:#1e3a8a;font-size:9px}
+
+/* modal + toast */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:120;display:none;place-items:center;padding:16px}
+.modal.open{display:grid}
+.mbox{background:#fff;border-radius:12px;max-width:520px;width:100%;padding:26px;max-height:92vh;overflow:auto;position:relative}
+.mbox h3{font-size:19px;margin-bottom:8px}
+.mbox p{font-size:12.5px;color:#4b5563;margin-bottom:10px}
+.mbox ul{margin:0 0 14px 18px;font-size:12.5px;color:#374151}
+.mbox .x{position:absolute;top:10px;right:14px;background:none;border:0;font-size:22px}
+.mbox input,.mbox textarea{width:100%;border:1px solid var(--bd);border-radius:6px;padding:10px;margin-bottom:10px;font:inherit;font-size:12.5px}
+.mbox textarea{min-height:90px;resize:vertical}
+#toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(30px);background:#111827;color:#fff;padding:10px 18px;border-radius:30px;font-size:12px;opacity:0;transition:.3s;z-index:200;pointer-events:none}
+#toast.show{opacity:1;transform:translateX(-50%)}
+
+@media(max-width:1000px){
+ .hdr-main{grid-template-columns:auto 1fr;gap:12px}
+ .search{grid-column:1/-1;order:3;max-width:none}
+ .navl{position:static;transform:none}
+ .fcols{grid-template-columns:repeat(2,1fr)}
+ .fcol{border-bottom:1px solid var(--bd)}
+ .pr-grid{grid-template-columns:1fr}
+ .tiles{grid-template-columns:repeat(2,1fr)}
+ .sv-grid,.blog{grid-template-columns:repeat(2,1fr)}
+ .g4,.stats{grid-template-columns:repeat(2,1fr)}
+ .feats{grid-template-columns:repeat(3,1fr)}
+ .fg{grid-template-columns:1fr 1fr}
+ .glow{display:none}
+}
+@media(max-width:700px){
+ .burger{display:block}
+ .navl{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;gap:0;border:1px solid var(--bd);z-index:30}
+ .navl.open{display:flex}
+ .navl a{padding:12px 16px;border-bottom:1px solid var(--bd)}
+ .fast{display:none}
+ .hero{height:300px}
+ .who,.g2{grid-template-columns:1fr}
+ .sv-grid,.blog{grid-template-columns:1fr}
+ .tiles{grid-template-columns:1fr}
+ .fd{grid-template-columns:1fr;text-align:center}.fd div:last-child{text-align:center}.fd b{justify-content:center}
+ .pr-big{min-height:auto;flex-direction:column;padding:20px}
+ .pr-big svg.pedestal{position:static;transform:none;width:70%}
+ .pr-big .tx{margin:10px 0 0;padding:0;text-align:center}
+ .feats{grid-template-columns:repeat(2,1fr)}
+ .fg{grid-template-columns:1fr}
+ .tbl{display:block;overflow-x:auto}
+ .hdr-r .lg{display:none}
+ .topbar .wrap>div:first-child span:nth-child(2){display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <div><span>📞 +91 00000 00000</span><span>✉ info@tattwarthapower.com</span><span>📍 Your City, India</span></div>
+  <div>Help Center</div>
+</div></div>
+
+<div class="hdr">
+  <div class="wrap hdr-main">
+    <a href="#/home" class="logo">
+      <div class="logo-box"><svg viewBox="0 0 24 24"><path d="M3 3h18v5h-6.5v13h-5V8H3z"/></svg></div>
+      <div class="logo-txt">TATTWARTHA<small>POWER</small></div>
+    </a>
+    <form class="search" id="sForm">
+      <div class="sbox">
+        <select id="sCat"><option value="">All</option></select>
+        <input id="sQ" placeholder="Part No. / Keyword">
+        <button type="submit" aria-label="Search">🔍</button>
+      </div>
+      <label class="instock"><input type="checkbox" id="sStock"> In Stock</label>
+    </form>
+    <div class="hdr-r">
+      <a href="#" class="lg" onclick="openLogin(event)">Login</a><span class="lg">|</span><a href="#" class="lg" onclick="openLogin(event)">Register</a>
+      <button title="Compare" onclick="toast('Compare list is empty')">⇄</button>
+      <button class="cart" onclick="toast('Cart is a demo — checkout not connected')">🛒<b id="cartN">0</b></button>
+    </div>
+  </div>
+  <div class="navbar"><div class="wrap">
+    <button class="catbtn" id="catBtn">☰ SHOP BY CATEGORIES ▾</button>
+    <nav class="navl" id="navl">
+      <a href="#/home" data-p="home">Home</a><a href="#/shop" data-p="shop">Shop</a><a href="#/blog" data-p="blog">Blog</a><a href="#/services" data-p="services">Services</a><a href="#/about" data-p="about">About Us</a>
+    </nav>
+    <div class="fast">🚚 Pan India Fast Delivery</div>
+    <button class="burger" id="burger" aria-label="Menu">☰</button>
+  </div></div>
+</div>
+
+<!-- drawer -->
+<div class="ov" id="ov"></div>
+<aside class="drawer" id="drawer">
+  <div class="dh"><a href="#/home" class="logo"><div class="logo-box"><svg viewBox="0 0 24 24"><path d="M3 3h18v5h-6.5v13h-5V8H3z"/></svg></div><div class="logo-txt">TATTWARTHA<small>POWER</small></div></a></div>
+  <h3>Shop By Categories <button id="dClose" aria-label="Close">✕</button></h3>
+  <div id="dList"></div>
+</aside>
+
+<main>
+<!-- HOME -->
+<div class="page wrap" id="p-home">
+  <div class="hero" id="hero"></div>
+  <div class="carw"><button class="car-ar" data-car="-1">‹</button><div class="carr" id="catCar"></div><button class="car-ar" data-car="1">›</button></div>
+
+  <div class="sh">
+    <div><h3>Shop by Category</h3><p>Quality products built for performance and reliability.</p></div>
+    <div class="tabs" id="tabs"></div>
+  </div>
+  <div class="pgrid" id="tabProducts"></div>
+
+  <div class="pr-grid">
+    <div class="pr-big" id="prBig"></div>
+    <div class="pr-col" id="prCol"></div>
+  </div>
+
+  <div class="fd">
+    <b>🚚 FAST DISPATCH</b>
+    <div>Orders before 3 PM ship same day — Pan India</div>
+    <div>100% Genuine Parts</div>
+  </div>
+  <div class="tiles" id="tiles"></div>
+
+  <div class="sh"><h3>Latest Products</h3><a href="#/shop" class="view">View All ›</a></div>
+  <div class="carw" style="margin-bottom:40px"><div class="prow" id="latest"></div><button class="car-ar" data-car2="1">›</button></div>
+</div>
+
+<!-- SHOP -->
+<div class="page wrap hide" id="p-shop" style="padding-top:14px">
+  <div class="filters">
+    <div class="fh"><span>FILTERS <span class="cnt" id="fCnt">0</span></span><button onclick="resetFilters()">Reset all</button></div>
+    <div class="fcols">
+      <div class="fcol"><h6>Category</h6><div class="fl" id="fCats"></div></div>
+      <div class="fcol"><h6>Subcategory</h6><div class="fl" id="fSubs"></div></div>
+      <div class="fcol"><h6>Part Status</h6><div class="fl" id="fStatus"></div></div>
+      <div class="fcol"><h6>Application</h6><div class="fl" id="fApps"></div></div>
+      <div class="fcol"><h6>Manufacturer</h6><div class="fl" id="fMfr"></div></div>
+    </div>
+    <div class="fbot">
+      <label><input type="checkbox" id="fStock"> In Stock</label>
+      <label>Lead Time: <select id="fLead"><option value="99">Any</option><option value="0">Ready stock</option><option value="7">Up to 7 days</option><option value="14">Up to 14 days</option></select></label>
+    </div>
+  </div>
+  <div class="tb">
+    <div class="l"><button class="vb on" id="vList">☰</button><button class="vb" id="vGrid">▦</button><span id="rCount">0 products</span></div>
+    <div>Sort by <select id="sort"><option value="new">Newest</option><option value="pa">Price: Low to High</option><option value="pd">Price: High to Low</option><option value="az">Part No. A–Z</option></select></div>
+  </div>
+  <input class="within" id="within" placeholder="Search within results (part no., keyword…)">
+  <div id="results"></div>
+  <div class="feats">
+    <div><div class="ic">🚚</div><b>Fast Dispatch</b><span>Orders shipped same day</span></div>
+    <div><div class="ic">✔</div><b>Genuine Components</b><span>100% authentic parts</span></div>
+    <div><div class="ic">🔒</div><b>Secure Checkout</b><span>UPI / cards accepted</span></div>
+    <div><div class="ic">📦</div><b>Wide Stock</b><span>1000+ components available</span></div>
+    <div><div class="ic">🎧</div><b>Expert Support</b><span>Technical help available</span></div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div class="page hide" id="p-services">
+  <div class="ph"><div class="tg">What We Offer</div><h1>Our Services</h1><p>Explore our range of professional services tailored for electronics and industrial requirements.</p></div>
+  <div class="wrap"><div class="sv-grid" id="svGrid"></div></div>
+</div>
+
+<!-- ABOUT -->
+<div class="page hide" id="p-about">
+  <div class="ph"><div class="tg">Who We Are</div><h1>About Us</h1><p>Tattwartha Power is a technology company delivering electronic design and component solutions that turn ideas into reality.</p></div>
+  <div class="wrap">
+    <div class="stats">
+      <div class="card stat"><b>2025</b><span>Founded</span></div>
+      <div class="card stat"><b>500+</b><span>Components Supplied</span></div>
+      <div class="card stat"><b>100+</b><span>Happy Customers</span></div>
+      <div class="card stat"><b>100%</b><span>Quality Assured</span></div>
+    </div>
+    <div class="card who">
+      <div>
+        <h3>Who We Are</h3>
+        <p><b>Tattwartha Power</b> specialises in delivering end-to-end electronic design and component solutions that help customers bring their ideas to life with precision, reliability and speed.</p>
+        <p>We understand that every great product begins with strong foundations in design. That's why we offer comprehensive design-to-execution services — ensuring customers can transform concepts into working prototypes and market-ready products. From circuit design and PCB layout to Gerber file preparation, our expert team provides technical excellence and attention to detail at every step.</p>
+        <p>In addition to design services, we act as a one-stop destination for electronic components. Leveraging our industry connections and sourcing expertise, we supply a wide range of quality components tailored to our customers' requirements — whether for prototyping, small-batch production, or large-scale manufacturing.</p>
+      </div>
+      <div class="img" id="aboutImg"></div>
+    </div>
+    <div class="mission"><h3>Our Mission</h3><p>To become a trusted partner for businesses and innovators by offering seamless electronic design services and dependable component supply under one roof. At Tattwartha Power, we don't just provide solutions — we collaborate, innovate, and grow with our customers.</p></div>
+
+    <h3 class="sec">What Sets Us Apart</h3>
+    <div class="g4">
+      <div class="card feat"><div class="ic">💡</div><h4>Innovation Driven</h4><p>We thrive on turning ideas into reality with cutting-edge design solutions.</p></div>
+      <div class="card feat"><div class="ic">🛡</div><h4>Quality Focused</h4><p>Every service and component we provide is backed by strict quality assurance.</p></div>
+      <div class="card feat"><div class="ic">🚚</div><h4>Flexible &amp; Reliable</h4><p>We adapt to diverse customer needs, from start-ups to established businesses.</p></div>
+      <div class="card feat"><div class="ic">🤝</div><h4>Customer-Centric</h4><p>Our customers' success is our success. We collaborate, not just deliver.</p></div>
+    </div>
+
+    <h3 class="sec">What We Offer</h3>
+    <div class="g2">
+      <div class="card offer"><div class="ic">✂</div><div><h4>Circuit &amp; PCB Design</h4><p style="font-size:11.5px;color:var(--mut)">End-to-end circuit design, PCB layout, and Gerber file preparation by expert engineers.</p></div></div>
+      <div class="card offer"><div class="ic">◎</div><div><h4>Component Supply</h4><p style="font-size:11.5px;color:var(--mut)">Wide range of quality electronic components for prototyping, small-batch, and large-scale manufacturing.</p></div></div>
+      <div class="card offer"><div class="ic">▣</div><div><h4>Prototype to Production</h4><p style="font-size:11.5px;color:var(--mut)">From working prototype to market-ready product — we support every stage of your product journey.</p></div></div>
+      <div class="card offer"><div class="ic">☺</div><div><h4>Technical Consulting</h4><p style="font-size:11.5px;color:var(--mut)">Expert guidance on component selection, design optimisation, and cost-effective sourcing strategies.</p></div></div>
+    </div>
+
+    <div class="g2" style="margin-bottom:50px">
+      <div class="card cta2"><h4>Want to Work With Us?</h4><p>Tell us about your project and we'll help you bring it to life.</p><button class="btn" onclick="openQuote('General enquiry')">Get In Touch</button></div>
+      <div class="card cta2"><h4>Need a Component or Design?</h4><p>Browse our catalog or reach out for a customised solution.</p><a class="btn" href="#/shop">Explore Products</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- BLOG -->
+<div class="page hide" id="p-blog">
+  <div class="ph"><div class="tg">Insights</div><h1>Blog</h1><p>Practical notes on component selection, PCB design and power electronics.</p></div>
+  <div class="wrap"><div class="blog" id="blogGrid"></div></div>
+</div>
+</main>
+
+<footer><div class="wrap">
+  <div class="fg">
+    <div>
+      <h5>Contact us</h5>
+      <p style="color:#4b5563">Your City, India</p>
+      <p style="margin-top:8px">info@tattwarthapower.com</p>
+      <div class="ph2">+91 00000 00000</div>
+      <a href="#" onclick="openQuote('General enquiry');return false" style="color:var(--p);font-weight:600">💬 Online Chat — Get Expert Help</a>
+    </div>
+    <div><h5>Useful Links</h5><ul><li><a href="#/shop">Shop</a></li><li><a href="#/blog">Blog</a></li><li><a href="#/services">Services</a></li><li><a href="#/shop">Category</a></li><li><a href="#" onclick="toast('Orders need a login — demo only');return false">My Orders</a></li></ul></div>
+    <div><h5>Our company</h5><ul><li><a href="#/about">About Us</a></li><li><a href="#" onclick="openQuote('General enquiry');return false">Contact Us</a></li><li><a href="#" onclick="toast('FAQs coming soon');return false">FAQs</a></li><li><a href="#" onclick="toast('Privacy policy coming soon');return false">Privacy Policy</a></li><li><a href="#" onclick="toast('Terms coming soon');return false">Terms &amp; Conditions</a></li></ul></div>
+    <div>
+      <h5>Subscribe to newsletter</h5>
+      <p style="color:#6b7280">Get the latest updates and special discounts</p>
+      <form class="sub" onsubmit="event.preventDefault();toast('Thanks for subscribing!');this.reset()"><input type="email" placeholder="Your Email Address" required><button>SUBSCRIBE</button></form>
+      <label style="font-size:10px;color:#6b7280;display:flex;gap:6px"><input type="checkbox" required> I agree to the terms and conditions and the privacy policy</label>
+    </div>
+  </div>
+  <div class="copy"><span>© <span id="yr"></span> Tattwartha Power. All Rights Reserved.</span><span class="pay"><span>VISA</span><span>MASTERCARD</span><span>UPI</span><span>RUPAY</span></span></div>
+</div></footer>
+
+<div class="modal" id="modal"><div class="mbox"><button class="x" onclick="closeModal()">✕</button><div id="mContent"></div></div></div>
+<div id="toast"></div>
+
+<script>
+/* ---------- DATA ---------- */
+const CATS={
+ "Integrated Circuits (IC)":["Microcontrollers","Power Management","Op-Amps & Comparators","Memory","Interface ICs","Sensors"],
+ "Resistor":["Chip Resistors","Through-Hole","Current Sense","Potentiometers"],
+ "Capacitor":["MLCC","Electrolytic","Tantalum","Film"],
+ "Diode":["Rectifier","Schottky","Zener","TVS"],
+ "Transistor":["BJT","Digital Transistors","Darlington"],
+ "MOSFET":["N-Channel","P-Channel","Power Modules"],
+ "Inductor":["Power Inductors","Common Mode Chokes","RF Inductors"],
+ "Ferrite Bead":["SMD Ferrite Beads","Ferrite Cores"],
+ "Crystal":["Crystals","Oscillators","Resonators"],
+ "Connector":["Headers & Sockets","USB","FFC/FPC","D-Sub"],
+ "Terminals":["Screw Terminal Blocks","Ring Terminals","Spade Terminals"],
+ "Development Board":["Microcontroller Boards","Evaluation Kits","Wireless Modules"]
+};
+const KIND={"Integrated Circuits (IC)":"ic","Resistor":"res","Capacitor":"cap","Diode":"dio","Transistor":"trn","MOSFET":"mos","Inductor":"ind","Ferrite Bead":"fer","Crystal":"xtl","Connector":"con","Terminals":"ter","Development Board":"dev"};
+const SHORT={"Integrated Circuits (IC)":"INTEGRATED CIRCUITS (IC)"};
+const TABCOL=["#7c3aed","#dc2626","#0891b2","#16a34a","#ea580c","#2563eb","#9333ea","#0d9488","#b45309","#be123c","#4338ca","#15803d"];
+const IC="Integrated Circuits (IC)";
+const rows=[
+[IC,"Microcontrollers","STMicroelectronics","STM32F103C8T6","ARM Cortex-M3 MCU, 72MHz, 64KB Flash, LQFP-48",285,"in",0,"Active","Industrial"],
+[IC,"Power Management","Texas Instruments","TPS5430DDAR","3A step-down buck converter, 5.5–36V input, SOIC-8",168,"in",0,"Active","Power"],
+[IC,"Op-Amps & Comparators","Texas Instruments","LM358DR","Dual low-power operational amplifier, SOIC-8",24,"in",0,"Active","Consumer"],
+[IC,"Memory","Microchip","AT24C256C-SSHL-T","256Kbit I2C serial EEPROM, SOIC-8",58,"low",7,"Active","Automotive"],
+[IC,"Interface ICs","Texas Instruments","SN65HVD230DR","3.3V CAN bus transceiver, SOIC-8",142,"out",21,"Active","Automotive"],
+[IC,"Sensors","Bosch Sensortec","BME280","Humidity, pressure and temperature sensor, LGA-8",420,"in",0,"Active","IoT"],
+["Resistor","Chip Resistors","Vishay","CRCW06031K00FKEA","1kΩ ±1% 0.1W thick film chip resistor, 0603",2.5,"in",0,"Active","Industrial"],
+["Resistor","Chip Resistors","Yageo","RC0805FR-0710KL","10kΩ ±1% 0.125W chip resistor, 0805",1.8,"in",0,"Active","Consumer"],
+["Resistor","Current Sense","Vishay","WSL2512R0100FEA","10mΩ ±1% 1W current sense resistor, 2512",38,"low",7,"Active","Power"],
+["Resistor","Through-Hole","Yageo","CFR-25JB-52-1K","1kΩ ±5% 0.25W carbon film resistor, axial",0.9,"in",0,"Active","Consumer"],
+["Resistor","Potentiometers","Bourns","3296W-1-103LF","10kΩ 25-turn trimmer potentiometer, through-hole",62,"in",0,"Active","Industrial"],
+["Capacitor","MLCC","KEMET","C0603C104K5RACAUTO","0.1µF ±10% 50V X7R MLCC, 0603, AEC-Q200",11.46,"in",0,"Active","Automotive"],
+["Capacitor","MLCC","Murata","GRM188R71H104KA93D","0.1µF ±10% 50V X7R MLCC, 0603",4.2,"in",0,"Active","Consumer"],
+["Capacitor","MLCC","Yageo","CC0805KKX7R9BB104","0.1µF ±10% 50V X7R MLCC, 0805",3.4,"in",0,"Active","Industrial"],
+["Capacitor","Electrolytic","Panasonic","EEU-FR1E221","220µF 25V radial aluminium electrolytic, 105°C",22,"in",0,"Active","Power"],
+["Capacitor","Tantalum","KEMET","T491B106K016AT","10µF 16V tantalum capacitor, case B",48,"low",14,"Active","Telecom"],
+["Diode","Rectifier","Vishay","1N4007","1A 1000V general-purpose rectifier diode, DO-41",3.5,"in",0,"Active","Power"],
+["Diode","Schottky","Taiwan Semiconductor","SS14","1A 40V Schottky barrier diode, SMA",4.8,"in",0,"Active","Consumer"],
+["Diode","TVS","Littelfuse","SMBJ15A","600W 15V unidirectional TVS diode, SMB",16,"in",0,"Active","Industrial"],
+["Diode","Zener","Nexperia","BZX84-C5V1","5.1V 250mW Zener diode, SOT-23",3,"in",0,"Active","Consumer"],
+["Transistor","BJT","Nexperia","BC847B","45V 100mA NPN general-purpose transistor, SOT-23",2.4,"in",0,"Active","Consumer"],
+["Transistor","BJT","onsemi","MMBT2222A","40V 600mA NPN switching transistor, SOT-23",3.2,"in",0,"Active","Industrial"],
+["Transistor","Digital Transistors","Nexperia","PDTC114EU","NPN resistor-equipped transistor 50V 100mA, SOT-323",5,"low",7,"NRND","Consumer"],
+["MOSFET","N-Channel","Infineon","IRFZ44NPBF","55V 49A N-channel power MOSFET, TO-220",78,"in",0,"Active","Power"],
+["MOSFET","N-Channel","Infineon","IRLZ44NPBF","55V 47A logic-level N-channel MOSFET, TO-220",82,"low",7,"Active","Automotive"],
+["MOSFET","P-Channel","Vishay","SI2301CDS-T1-GE3","-20V 3.1A P-channel MOSFET, SOT-23",18,"in",0,"Active","Consumer"],
+["Inductor","Power Inductors","Bourns","SRR1260-100M","10µH ±20% 4.5A shielded power inductor",64,"in",0,"Active","Power"],
+["Inductor","Common Mode Chokes","TDK","ACM2012-201-2P-T001","Common mode choke 200Ω@100MHz, 0805",36,"in",0,"Active","Telecom"],
+["Ferrite Bead","SMD Ferrite Beads","Murata","BLM18AG601SN1D","600Ω@100MHz ferrite bead, 0603, 500mA",6,"in",0,"Active","Consumer"],
+["Ferrite Bead","SMD Ferrite Beads","TDK","MPZ1608S601ATA00","600Ω@100MHz ferrite bead, 0603",5.5,"out",14,"Active","Automotive"],
+["Crystal","Crystals","Abracon","ABM8-8.000MHZ-B2-T","8MHz ±20ppm 18pF SMD crystal, 3.2×2.5mm",38,"in",0,"Active","IoT"],
+["Crystal","Oscillators","Abracon","ASE-24.000MHZ-LC-T","24MHz CMOS SMD oscillator, 3.3V",92,"low",7,"Active","Telecom"],
+["Connector","Headers & Sockets","Molex","22-23-2041","4-position 2.54mm KK header, vertical, through-hole",14,"in",0,"Active","Industrial"],
+["Connector","USB","Amphenol","10118194-0001LF","Micro-USB Type-B receptacle, SMT",24,"in",0,"Active","Consumer"],
+["Connector","FFC/FPC","Molex","52746-0471","4-circuit FFC/FPC connector, 0.5mm pitch, ZIF",46,"in",0,"Active","Consumer"],
+["Terminals","Screw Terminal Blocks","Phoenix Contact","1729128","2-position 5.08mm PCB screw terminal block",52,"in",0,"Active","Industrial"],
+["Terminals","Ring Terminals","Generic OEM","RV1.25-4","Insulated ring terminal, M4, 22–16 AWG",1.5,"in",0,"Active","Automotive"],
+["Development Board","Microcontroller Boards","Arduino","A000066","Arduino Uno Rev3 board, ATmega328P",2150,"in",0,"Active","Education"],
+["Development Board","Evaluation Kits","STMicroelectronics","NUCLEO-F446RE","STM32 Nucleo-64 board with STM32F446RE MCU",1890,"low",7,"Active","Industrial"],
+["Development Board","Wireless Modules","Espressif","ESP32-DEVKITC-32E","ESP32-WROOM-32E development kit, Wi-Fi + Bluetooth",780,"in",0,"Active","IoT"]
+];
+const P=rows.map((r,i)=>({id:i,cat:r[0],sub:r[1],mfr:r[2],pn:r[3],desc:r[4],price:r[5],stock:r[6],lead:r[7],status:r[8],app:r[9]}));
+const inr=n=>"₹"+n.toFixed(2);
+const BADGE={in:["IN STOCK","b-in"],low:["LIMITED STOCK","b-low"],out:["OUT OF STOCK","b-out"]};
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+
+/* ---------- PRODUCT SVGS ---------- */
+function pimg(kind){
+ const pins=(n,x0,gap,y,h)=>Array.from({length:n},(_,i)=>`<rect x="${x0+i*gap}" y="${y}" width="3" height="${h}" fill="#c0c4cc"/>`).join("");
+ const S={
+ ic:`<rect x="30" y="22" width="60" height="46" rx="3" fill="#25272d"/><circle cx="38" cy="30" r="2.5" fill="#6b7280"/>${pins(8,34,7,14,8)}${pins(8,34,7,68,8)}<rect x="22" y="28" width="8" height="3" fill="#c0c4cc"/><rect x="22" y="38" width="8" height="3" fill="#c0c4cc"/><rect x="22" y="48" width="8" height="3" fill="#c0c4cc"/><rect x="22" y="58" width="8" height="3" fill="#c0c4cc"/><rect x="90" y="28" width="8" height="3" fill="#c0c4cc"/><rect x="90" y="38" width="8" height="3" fill="#c0c4cc"/><rect x="90" y="48" width="8" height="3" fill="#c0c4cc"/><rect x="90" y="58" width="8" height="3" fill="#c0c4cc"/>`,
+ res:`<rect x="30" y="30" width="60" height="30" rx="2" fill="#23252b"/><rect x="26" y="30" width="10" height="30" fill="#cfd3da"/><rect x="84" y="30" width="10" height="30" fill="#cfd3da"/><rect x="48" y="38" width="24" height="3" fill="#8b8f98"/>`,
+ cap:`<rect x="26" y="26" width="68" height="38" rx="3" fill="#c9a77a"/><rect x="22" y="26" width="13" height="38" rx="2" fill="#d5d9df"/><rect x="85" y="26" width="13" height="38" rx="2" fill="#d5d9df"/><rect x="38" y="30" width="44" height="6" fill="#e2c79f" opacity=".7"/>`,
+ dio:`<rect x="30" y="30" width="60" height="30" rx="4" fill="#23252b"/><rect x="72" y="30" width="7" height="30" fill="#c8ccd3"/><rect x="14" y="43" width="16" height="4" fill="#c0c4cc"/><rect x="90" y="43" width="16" height="4" fill="#c0c4cc"/>`,
+ trn:`<rect x="38" y="26" width="44" height="28" rx="3" fill="#25272d"/><rect x="42" y="54" width="4" height="12" fill="#c0c4cc"/><rect x="58" y="54" width="4" height="12" fill="#c0c4cc"/><rect x="74" y="54" width="4" height="12" fill="#c0c4cc"/><rect x="58" y="18" width="4" height="8" fill="#c0c4cc"/>`,
+ mos:`<rect x="34" y="8" width="52" height="20" rx="2" fill="#b8bcc4"/><circle cx="60" cy="17" r="4" fill="#fff"/><rect x="34" y="28" width="52" height="30" rx="2" fill="#25272d"/><rect x="42" y="58" width="4" height="16" fill="#c0c4cc"/><rect x="58" y="58" width="4" height="16" fill="#c0c4cc"/><rect x="74" y="58" width="4" height="16" fill="#c0c4cc"/>`,
+ ind:`<rect x="30" y="20" width="60" height="50" rx="5" fill="#2b2d33"/><circle cx="60" cy="45" r="16" fill="#b87333"/><circle cx="60" cy="45" r="8" fill="#2b2d33"/><rect x="26" y="38" width="8" height="14" fill="#cfd3da"/><rect x="86" y="38" width="8" height="14" fill="#cfd3da"/>`,
+ fer:`<rect x="34" y="32" width="52" height="26" rx="2" fill="#6b6f78"/><rect x="28" y="32" width="9" height="26" fill="#d5d9df"/><rect x="83" y="32" width="9" height="26" fill="#d5d9df"/><rect x="44" y="38" width="32" height="4" fill="#8f939c"/>`,
+ xtl:`<rect x="26" y="22" width="68" height="40" rx="18" fill="#d4d8de"/><rect x="26" y="22" width="68" height="40" rx="18" fill="none" stroke="#9ca3af" stroke-width="2"/><text x="60" y="46" font-size="10" text-anchor="middle" fill="#4b5563" font-family="Arial" font-weight="700">8.000</text><rect x="42" y="62" width="3" height="12" fill="#c0c4cc"/><rect x="75" y="62" width="3" height="12" fill="#c0c4cc"/>`,
+ con:`<rect x="22" y="30" width="76" height="30" rx="2" fill="#f4f1e8" stroke="#cfc8b4"/>${Array.from({length:6},(_,i)=>`<rect x="${30+i*12}" y="38" width="5" height="14" fill="#2b2d33"/><rect x="${31+i*12}" y="60" width="3" height="12" fill="#d4af37"/>`).join("")}`,
+ ter:`<circle cx="42" cy="45" r="16" fill="#b87333"/><circle cx="42" cy="45" r="7" fill="#fff"/><rect x="56" y="38" width="38" height="14" rx="2" fill="#b87333"/><rect x="76" y="36" width="24" height="18" rx="3" fill="#dc2626"/>`,
+ dev:`<rect x="14" y="14" width="92" height="62" rx="4" fill="#0f7a4a"/><rect x="44" y="28" width="32" height="30" rx="2" fill="#25272d"/><rect x="20" y="22" width="14" height="14" rx="2" fill="#c0c4cc"/>${Array.from({length:8},(_,i)=>`<rect x="${22+i*10}" y="68" width="4" height="6" fill="#d4af37"/>`).join("")}<circle cx="96" cy="24" r="4" fill="#fbbf24"/>`
+ };
+ return `<svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg">${S[kind]||S.ic}</svg>`;
+}
+const pimgFor=p=>pimg(KIND[p.cat]);
+
+/* ---------- CARDS ---------- */
+function card(p){
+ const b=BADGE[p.stock];
+ return `<div class="pcard"><span class="badge ${b[1]}">${b[0]}</span><button class="wish" onclick="this.classList.toggle('on')" aria-label="Wishlist">♡</button>
+ <a href="#/shop?q=${encodeURIComponent(p.pn)}" class="pimg">${pimgFor(p)}</a>
+ <div class="pbody"><span class="pill">${p.cat}</span><div class="pn">${p.pn}</div><div class="pdsc">${p.desc}</div>
+ <div class="mfr"><small>MFR</small><span>${p.mfr}</span></div><div class="price">${inr(p.price)}</div>
+ <div class="buy"><input type="number" min="1" value="1" aria-label="Quantity"><button ${p.stock==="out"?"disabled":""} onclick="addCart(${p.id},this)">${p.stock==="out"?"Unavailable":"Add to cart"}</button></div></div></div>`;
+}
+let cart=0;
+function addCart(id,btn){
+ const q=Math.max(1,parseInt(btn.parentElement.querySelector("input").value)||1);
+ cart+=q;$("#cartN").textContent=cart;toast(`Added ${q} × ${P[id].pn} to cart`);
+}
+let tT;function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("show");clearTimeout(tT);tT=setTimeout(()=>t.classList.remove("show"),2200)}
+
+/* ---------- HERO ---------- */
+const circuit=`<svg class="bgc" viewBox="0 0 800 340" preserveAspectRatio="xMidYMid slice"><g fill="none" stroke="#2f7bd1" stroke-width="1.2" opacity=".5"><path d="M0 60h180l30 30h160M0 120h120l40 40h220M0 220h260l30-30h180M0 280h200l40-40h300M420 0v80l40 40h340M520 340v-90l40-40h240M650 0v40l30 30h120"/></g><g fill="#3b9bff" opacity=".7"><circle cx="210" cy="90" r="4"/><circle cx="160" cy="160" r="4"/><circle cx="290" cy="190" r="4"/><circle cx="240" cy="240" r="4"/><circle cx="460" cy="120" r="4"/><circle cx="560" cy="210" r="4"/><circle cx="680" cy="70" r="4"/></g></svg>`;
+const chipGlow=`<svg class="glow" viewBox="0 0 300 260"><defs><radialGradient id="gl"><stop offset="0" stop-color="#3b9bff" stop-opacity=".7"/><stop offset="1" stop-color="#3b9bff" stop-opacity="0"/></radialGradient></defs><circle cx="150" cy="130" r="125" fill="url(#gl)"/><rect x="85" y="65" width="130" height="130" rx="12" fill="#0b1c38" stroke="#5db3ff" stroke-width="3"/><rect x="115" y="95" width="70" height="70" rx="6" fill="#102a52" stroke="#5db3ff"/><text x="150" y="140" text-anchor="middle" font-family="Outfit" font-weight="700" font-size="30" fill="#8fd0ff">AI</text>${Array.from({length:6},(_,i)=>`<rect x="${97+i*20}" y="50" width="6" height="15" fill="#5db3ff"/><rect x="${97+i*20}" y="195" width="6" height="15" fill="#5db3ff"/><rect x="70" y="${77+i*20}" width="15" height="6" fill="#5db3ff"/><rect x="215" y="${77+i*20}" width="15" height="6" fill="#5db3ff"/>`).join("")}</svg>`;
+const SLIDES=[
+ ["Embedded Intelligence Starts Here","Industrial Automation, IoT & Smart Electronics Solutions"],
+ ["Genuine Components, Shipped Fast","1000+ parts in stock · Orders before 3 PM ship same day"],
+ ["From Idea to Production","Circuit design, PCB layout and prototyping by expert engineers"]
+];
+$("#hero").innerHTML=SLIDES.map((s,i)=>`<div class="slide ${i?"":"on"}">${circuit}${chipGlow}<div class="in"><div class="brandbox"><div class="logo-box"><svg viewBox="0 0 24 24"><path d="M3 3h18v5h-6.5v13h-5V8H3z"/></svg></div><div>TATTWARTHA<small>POWER</small></div></div><h2>${s[0]}</h2><p>${s[1]}</p></div></div>`).join("")+`<div class="dots">${SLIDES.map((_,i)=>`<i class="${i?"":"on"}" data-i="${i}"></i>`).join("")}</div>`;
+let si=0,sTimer;
+function goSlide(i){si=i;$$(".slide").forEach((s,k)=>s.classList.toggle("on",k===i));$$(".dots i").forEach((d,k)=>d.classList.toggle("on",k===i))}
+function autoSlide(){clearInterval(sTimer);sTimer=setInterval(()=>goSlide((si+1)%SLIDES.length),5000)}
+$$(".dots i").forEach(d=>d.onclick=()=>{goSlide(+d.dataset.i);autoSlide()});autoSlide();
+
+/* ---------- HOME SECTIONS ---------- */
+$("#catCar").innerHTML=Object.keys(CATS).map(c=>`<a class="cc" href="#/shop?cat=${encodeURIComponent(c)}">${pimg(KIND[c])}${c}</a>`).join("");
+$$("[data-car]").forEach(b=>b.onclick=()=>$("#catCar").scrollBy({left:+b.dataset.car*320}));
+$$("[data-car2]").forEach(b=>b.onclick=()=>$("#latest").scrollBy({left:+b.dataset.car2*420}));
+const cats=Object.keys(CATS);
+$("#tabs").innerHTML=cats.map((c,i)=>`<button data-c="${c}" style="color:${TABCOL[i]}" class="${i?"":"on"}">${(SHORT[c]||c).toUpperCase()}</button>`).join("")+`<a href="#/shop" style="color:#6b7280;font-size:14px">›</a>`;
+function showTab(c){
+ $$("#tabs button").forEach(b=>b.classList.toggle("on",b.dataset.c===c));
+ $("#tabProducts").innerHTML=P.filter(p=>p.cat===c).slice(0,6).map(card).join("");
+}
+$$("#tabs button").forEach(b=>b.onclick=()=>showTab(b.dataset.c));showTab(cats[0]);
+
+const pedestal=`<svg class="pedestal" viewBox="0 0 300 240"><ellipse cx="150" cy="190" rx="130" ry="34" fill="#fff" opacity=".9"/><ellipse cx="150" cy="182" rx="105" ry="26" fill="#eef2ff" stroke="#c7d2fe"/><g transform="translate(55 70) scale(1.6)"><rect x="26" y="26" width="68" height="38" rx="3" fill="#c9a77a"/><rect x="22" y="26" width="13" height="38" rx="2" fill="#d5d9df"/><rect x="85" y="26" width="13" height="38" rx="2" fill="#d5d9df"/></g></svg>`;
+const bigP=P[11], smP=[P[12],P[7]];
+$("#prBig").innerHTML=`${pedestal}<div class="tx"><small>New Arrivals in</small><h3>${bigP.pn}</h3><a class="shopnow" href="#/shop?q=${encodeURIComponent(bigP.pn)}">SHOP NOW</a></div>`;
+$("#prCol").innerHTML=smP.map(p=>`<div class="pr-sm">${pimgFor(p)}<div><h4>${p.pn}</h4><b>${inr(p.price)}</b><a class="shopnow" href="#/shop?q=${encodeURIComponent(p.pn)}">SHOP NOW</a></div></div>`).join("");
+$("#tiles").innerHTML=[P[1],P[24],P[12],P[11]].map(p=>`<div class="tile">${pimgFor(p)}<div><h5>${p.pn}</h5><b>${inr(p.price)}</b><a class="shopnow" href="#/shop?q=${encodeURIComponent(p.pn)}">SHOP NOW</a></div></div>`).join("");
+$("#latest").innerHTML=[...P].reverse().slice(0,10).map(card).join("");
+
+/* ---------- SERVICES (own illustrations) ---------- */
+const gear=(x,y,r,c="#fff")=>`<circle cx="${x}" cy="${y}" r="${r}" fill="none" stroke="${c}" stroke-width="${r*.35}" stroke-dasharray="${r*.42} ${r*.3}"/><circle cx="${x}" cy="${y}" r="${r*.7}" fill="none" stroke="${c}" stroke-width="3"/><circle cx="${x}" cy="${y}" r="${r*.2}" fill="${c}"/>`;
+const SV={
+ pcb:`<rect width="400" height="200" fill="#0b5d3b"/><g stroke="#7ee8a8" stroke-width="2" fill="none" opacity=".8"><path d="M0 40h90l20 20h80M0 100h60l30 30h120l30-30h160M400 40h-120l-20 30M0 160h130l20-20h140l20 20h90M200 0v60M300 200v-50"/></g><rect x="150" y="70" width="100" height="62" rx="4" fill="#1b1d22"/><circle cx="162" cy="82" r="3" fill="#6b7280"/><rect x="40" y="120" width="40" height="22" fill="#c9a77a"/><rect x="300" y="60" width="50" height="30" fill="#1b1d22"/><circle cx="330" cy="140" r="14" fill="#d4af37"/><circle cx="60" cy="60" r="6" fill="#d4af37"/>`,
+ mech:`<defs><linearGradient id="a1" x1="0" x2="1"><stop offset="0" stop-color="#1e3a5f"/><stop offset="1" stop-color="#0f1f38"/></linearGradient></defs><rect width="400" height="200" fill="url(#a1)"/><rect x="40" y="30" width="120" height="150" rx="6" fill="#2d4a73" stroke="#7fb2ff"/><g fill="#7fb2ff"><rect x="55" y="48" width="90" height="10"/><rect x="55" y="70" width="90" height="10"/><rect x="55" y="92" width="90" height="10"/></g><circle cx="70" cy="140" r="9" fill="#fbbf24"/><circle cx="100" cy="140" r="9" fill="#22c55e"/><circle cx="130" cy="140" r="9" fill="#ef4444"/>${gear(260,80,42,"#7fb2ff")}${gear(330,140,26,"#fbbf24")}`,
+ emb:`<defs><linearGradient id="a2" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#0a1a3a"/><stop offset="1" stop-color="#3b1d7a"/></linearGradient></defs><rect width="400" height="200" fill="url(#a2)"/><g fill="none" stroke="#38bdf8" stroke-width="2" opacity=".6"><path d="M0 50h120M0 100h100M0 150h120M280 50h120M300 100h100M280 150h120"/></g><rect x="130" y="55" width="140" height="90" rx="8" fill="#0f2147" stroke="#38bdf8" stroke-width="3"/><circle cx="200" cy="100" r="26" fill="none" stroke="#a78bfa" stroke-width="4"/><circle cx="200" cy="100" r="10" fill="#a78bfa"/><g fill="none" stroke="#38bdf8" stroke-width="3" stroke-linecap="round"><path d="M180 36a28 28 0 0 1 40 0M170 26a42 42 0 0 1 60 0"/></g>`,
+ ev:`<defs><linearGradient id="a3" x1="0" x2="1"><stop offset="0" stop-color="#0f766e"/><stop offset="1" stop-color="#134e4a"/></linearGradient></defs><rect width="400" height="200" fill="url(#a3)"/><rect x="0" y="170" width="400" height="30" fill="#0b3a37"/><rect x="120" y="30" width="70" height="140" rx="10" fill="#f0fdfa"/><rect x="132" y="45" width="46" height="38" rx="4" fill="#0f766e"/><path d="M158 50l-12 18h10l-4 12 14-20h-10z" fill="#fde047"/><path d="M190 120c40 0 30 40 70 40" stroke="#f0fdfa" stroke-width="5" fill="none"/><rect x="258" y="148" width="26" height="22" rx="4" fill="#f0fdfa"/><path d="M300 140h60l12 20v14H288v-14z" fill="#99f6e4"/><circle cx="315" cy="176" r="9" fill="#0b3a37" stroke="#99f6e4" stroke-width="3"/><circle cx="352" cy="176" r="9" fill="#0b3a37" stroke="#99f6e4" stroke-width="3"/>`,
+ psu:`<defs><linearGradient id="a4" x1="0" x2="1"><stop offset="0" stop-color="#7c2d12"/><stop offset="1" stop-color="#1c1917"/></linearGradient></defs><rect width="400" height="200" fill="url(#a4)"/><rect x="60" y="45" width="140" height="110" rx="6" fill="#d6d3d1"/><g stroke="#78716c" stroke-width="3"><path d="M75 65h110M75 85h110M75 105h110M75 125h110"/></g><rect x="215" y="70" width="10" height="60" fill="#fbbf24"/><path d="M215 100h60l20-30 20 60 20-30h45" stroke="#fb923c" stroke-width="4" fill="none"/><circle cx="90" cy="145" r="5" fill="#16a34a"/>`,
+ bldc:`<defs><linearGradient id="a5" x1="0" x2="1"><stop offset="0" stop-color="#e5e7eb"/><stop offset="1" stop-color="#9ca3af"/></linearGradient></defs><rect width="400" height="200" fill="url(#a5)"/><circle cx="200" cy="100" r="78" fill="#1f2937"/><circle cx="200" cy="100" r="64" fill="#374151"/>${Array.from({length:6},(_,i)=>{const a=i*60*Math.PI/180;return`<rect x="${200+Math.cos(a)*38-9}" y="${100+Math.sin(a)*38-9}" width="18" height="18" rx="3" fill="#b87333" transform="rotate(${i*60} ${200+Math.cos(a)*38} ${100+Math.sin(a)*38})"/>`}).join("")}<circle cx="200" cy="100" r="22" fill="#d1d5db"/><circle cx="200" cy="100" r="8" fill="#4b5563"/>`,
+ auto:`<defs><linearGradient id="a6" x1="0" x2="1"><stop offset="0" stop-color="#f8fafc"/><stop offset="1" stop-color="#e2e8f0"/></linearGradient></defs><rect width="400" height="200" fill="url(#a6)"/><path d="M60 130l25-45c8-12 20-18 36-18h98c20 0 34 8 48 25l22 20c14 2 21 10 21 22v12H60z" fill="#6d28d9"/><path d="M110 90l12-18h76l30 30H110z" fill="#ddd6fe"/><circle cx="125" cy="146" r="20" fill="#111827"/><circle cx="125" cy="146" r="8" fill="#9ca3af"/><circle cx="300" cy="146" r="20" fill="#111827"/><circle cx="300" cy="146" r="8" fill="#9ca3af"/><g fill="none" stroke="#10b981" stroke-width="2.5"><path d="M30 40h60l15 15M370 40h-50l-15 15"/></g><circle cx="30" cy="40" r="5" fill="#10b981"/><circle cx="370" cy="40" r="5" fill="#10b981"/>`
+};
+const svg=k=>`<svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">${SV[k]}</svg>`;
+const SERVICES=[
+ ["pcb","PCB Assembly Services","We offer professional PCB assembly services for prototypes, low-volume production, and large-scale manufacturing. Our process covers component sourcing, SMT and through-hole assembly, inspection and functional testing.",["SMT & through-hole assembly","Component sourcing included","Inspection and functional testing"]],
+ ["mech","Industrial Mechatronics Design","Our industrial mechatronics design services support automation, process control, monitoring and industrial communication — combining electronics, firmware and mechanical integration.",["Automation & control panels","PLC / sensor integration","Industrial communication (Modbus, CAN)"]],
+ ["emb","Embedded Systems & IoT Design","We transform ideas into intelligent connected products through advanced embedded hardware and IoT development, from firmware to cloud connectivity.",["MCU selection & firmware","Wi-Fi / BLE / LoRa connectivity","Cloud dashboards & OTA updates"]],
+ ["ev","EV Charger Design Services","We develop complete EV charger design solutions for residential, commercial and industrial charging applications, from power stage to protection and communication.",["AC & DC charger electronics","Protection & metering","Charger communication protocols"]],
+ ["psu","Power Supply Design Services","We develop reliable and efficient power supply designs tailored to your application requirements. From low-power adapters to industrial SMPS.",["AC-DC and DC-DC converters","Efficiency & thermal optimisation","EMI/EMC-aware layout"]],
+ ["bldc","BLDC Motor Controller Design","We design high-performance BLDC motor controllers for industrial automation, electric vehicles, robotics, pumps, fans and more.",["Sensored & sensorless control","FOC and trapezoidal drives","Protection and diagnostics"]],
+ ["auto","Automotive Mechatronics Design","We provide end-to-end automotive electronics design services for passenger vehicles, commercial vehicles and electric two-wheelers.",["Body & lighting electronics","Sensor and ECU interfaces","Automotive-grade component selection"]]
+];
+$("#svGrid").innerHTML=SERVICES.map((s,i)=>`<div class="card sv"><div class="sv-i">${svg(s[0])}</div><div class="sv-b"><h4>${s[1]}</h4><p>${s[2]}</p><button class="rm" onclick="openService(${i})">Read More ▸</button></div></div>`).join("");
+function openService(i){const s=SERVICES[i];openModal(`<h3>${s[1]}</h3><p>${s[2]}</p><ul>${s[3].map(x=>`<li>${x}</li>`).join("")}</ul><button class="btn" onclick="openQuote('${s[1].replace(/'/g,"")}')">Request a Quote</button>`)}
+
+/* about + blog images */
+$("#aboutImg").innerHTML=`<svg viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ab" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#3f0f58"/><stop offset="1" stop-color="#5b1a7a"/></linearGradient></defs><rect width="300" height="220" fill="url(#ab)"/><g fill="none" stroke="#c4a1d9" stroke-width="2" opacity=".6"><path d="M0 40h90l20 20h60M0 110h60l25 25h100M300 60h-80l-20 25M300 170h-120l-20-20"/></g><rect x="95" y="65" width="110" height="90" rx="8" fill="#1b1230" stroke="#e9d5f5" stroke-width="3"/><path d="M130 85h40v14h-12v38h-16V99h-12z" fill="#fff"/></svg>`;
+const BLOG=[
+ ["pcb","Component selection","How to choose the right MLCC for automotive designs","Voltage derating, dielectric type and AEC-Q200 — what to check before you place the order."],
+ ["psu","Power electronics","Buck converter basics: picking an inductor that won't saturate","A quick guide to ripple current, saturation rating and shielded vs unshielded parts."],
+ ["emb","IoT","From prototype to production: your embedded product checklist","Key steps to move a dev-board prototype to a manufacturable PCB."]
+];
+$("#blogGrid").innerHTML=BLOG.map(b=>`<div class="card sv bl"><div class="sv-i">${svg(b[0])}</div><div class="sv-b"><small>${b[1].toUpperCase()}</small><h4 style="font-size:14px;margin:4px 0 8px;color:#111827">${b[2]}</h4><p>${b[3]}</p><button class="rm" onclick="toast('Full article coming soon')">Read More ▸</button></div></div>`).join("");
+
+/* ---------- DRAWER ---------- */
+$("#dList").innerHTML=cats.map(c=>`<div class="cat-i"><div class="cat-r"><a href="#/shop?cat=${encodeURIComponent(c)}">${c}</a><button class="plus" aria-label="Expand ${c}">+</button></div><div class="subs">${CATS[c].map(s=>`<a href="#/shop?cat=${encodeURIComponent(c)}&sub=${encodeURIComponent(s)}">${s}</a>`).join("")}</div></div>`).join("");
+$$(".plus").forEach(b=>b.onclick=()=>{const it=b.closest(".cat-i");const o=it.classList.toggle("open");b.textContent=o?"−":"+"});
+const openDrawer=()=>{$("#drawer").classList.add("open");$("#ov").classList.add("open")};
+const closeDrawer=()=>{$("#drawer").classList.remove("open");$("#ov").classList.remove("open")};
+$("#catBtn").onclick=openDrawer;$("#dClose").onclick=closeDrawer;$("#ov").onclick=closeDrawer;
+$("#dList").addEventListener("click",e=>{if(e.target.closest("a"))closeDrawer()});
+$("#burger").onclick=()=>$("#navl").classList.toggle("open");
+$("#navl").addEventListener("click",()=>$("#navl").classList.remove("open"));
+$("#sCat").innerHTML+=cats.map(c=>`<option>${c}</option>`).join("");
+$("#sForm").onsubmit=e=>{e.preventDefault();const q=new URLSearchParams();if($("#sQ").value.trim())q.set("q",$("#sQ").value.trim());if($("#sCat").value)q.set("cat",$("#sCat").value);if($("#sStock").checked)q.set("stock","1");location.hash="#/shop?"+q}
+
+/* ---------- SHOP ---------- */
+let F,view="list";
+const freshF=()=>({cats:new Set(),subs:new Set(),status:new Set(),apps:new Set(),mfrs:new Set(),stock:false,lead:99,q:"",within:"",sort:"new"});
+F=freshF();
+const uniq=k=>[...new Set(P.map(p=>p[k]))].sort();
+function checks(id,items,set,counts,onch){
+ $(id).innerHTML=items.map(v=>`<label><input type="checkbox" value="${v.replace(/"/g,"&quot;")}" ${set.has(v)?"checked":""}> ${v}<em>${counts(v)}</em></label>`).join("");
+ $(id).querySelectorAll("input").forEach(i=>i.onchange=()=>{i.checked?set.add(i.value):set.delete(i.value);onch()});
+}
+function buildSubs(){
+ const pool=F.cats.size?[...F.cats].flatMap(c=>CATS[c]):Object.values(CATS).flat();
+ [...F.subs].forEach(s=>{if(!pool.includes(s))F.subs.delete(s)});
+ checks("#fSubs",pool.filter(s=>P.some(p=>p.sub===s)),F.subs,v=>P.filter(p=>p.sub===v).length,render);
+}
+function buildFilters(){
+ checks("#fCats",cats,F.cats,v=>P.filter(p=>p.cat===v).length,()=>{buildSubs();render()});
+ buildSubs();
+ checks("#fStatus",uniq("status"),F.status,v=>P.filter(p=>p.status===v).length,render);
+ checks("#fApps",uniq("app"),F.apps,v=>P.filter(p=>p.app===v).length,render);
+ checks("#fMfr",uniq("mfr"),F.mfrs,v=>P.filter(p=>p.mfr===v).length,render);
+ $("#fStock").checked=F.stock;$("#fLead").value=F.lead;$("#within").value=F.within;$("#sort").value=F.sort;
+}
+function filtered(){
+ const q=F.q.toLowerCase(),w=F.within.toLowerCase();
+ let r=P.filter(p=>
+  (!F.cats.size||F.cats.has(p.cat))&&(!F.subs.size||F.subs.has(p.sub))&&(!F.status.size||F.status.has(p.status))&&
+  (!F.apps.size||F.apps.has(p.app))&&(!F.mfrs.size||F.mfrs.has(p.mfr))&&(!F.stock||p.stock!=="out")&&p.lead<=F.lead&&
+  (!q||(p.pn+" "+p.desc+" "+p.mfr+" "+p.cat+" "+p.sub).toLowerCase().includes(q))&&
+  (!w||(p.pn+" "+p.desc+" "+p.mfr).toLowerCase().includes(w)));
+ if(F.sort==="pa")r.sort((a,b)=>a.price-b.price);
+ if(F.sort==="pd")r.sort((a,b)=>b.price-a.price);
+ if(F.sort==="az")r.sort((a,b)=>a.pn.localeCompare(b.pn));
+ if(F.sort==="new")r.sort((a,b)=>b.id-a.id);
+ return r;
+}
+function render(){
+ const r=filtered();
+ $("#fCnt").textContent=F.cats.size+F.subs.size+F.status.size+F.apps.size+F.mfrs.size+(F.stock?1:0)+(F.lead<99?1:0)+(F.q?1:0);
+ $("#rCount").textContent=r.length+" products";
+ if(!r.length){$("#results").innerHTML=`<div class="none">No products match the current filters.</div>`;return}
+ if(view==="grid"){$("#results").innerHTML=`<div class="pgrid" style="margin-bottom:30px">${r.map(card).join("")}</div>`;return}
+ $("#results").innerHTML=`<table class="tbl"><thead><tr><th>Image</th><th>Part No. / Mfr</th><th>Description</th><th>DS</th><th>Availability</th><th>Price (INR)</th><th>Qty</th></tr></thead><tbody>${r.map(p=>{
+  const b=BADGE[p.stock];
+  return `<tr><td>${pimgFor(p)}</td><td><div class="pn">${p.pn}</div><small>${p.mfr}</small></td><td>${p.desc}<small>${p.cat} › ${p.sub}</small></td><td><a href="#" onclick="toast('Datasheet link not connected');return false" title="Datasheet">📄</a></td><td><span class="st ${b[1]}">${b[0]}</span>${p.lead?`<small>Lead time: ${p.lead} days</small>`:""}</td><td><b style="color:var(--p)">${inr(p.price)}</b></td><td><div class="qty"><input type="number" min="1" value="1"><button ${p.stock==="out"?"disabled":""} onclick="addCart(${p.id},this)">Add</button></div></td></tr>`}).join("")}</tbody></table>`;
+}
+function resetFilters(){F=freshF();buildFilters();render()}
+$("#fStock").onchange=e=>{F.stock=e.target.checked;render()};
+$("#fLead").onchange=e=>{F.lead=+e.target.value;render()};
+$("#sort").onchange=e=>{F.sort=e.target.value;render()};
+$("#within").oninput=e=>{F.within=e.target.value;render()};
+$("#vList").onclick=()=>{view="list";$("#vList").classList.add("on");$("#vGrid").classList.remove("on");render()};
+$("#vGrid").onclick=()=>{view="grid";$("#vGrid").classList.add("on");$("#vList").classList.remove("on");render()};
+
+/* ---------- ROUTER ---------- */
+function route(){
+ const h=location.hash.replace(/^#\/?/,"")||"home";
+ const [pg,qs]=h.split("?");const page=["home","shop","blog","services","about"].includes(pg)?pg:"home";
+ $$(".page").forEach(p=>p.classList.add("hide"));$("#p-"+page).classList.remove("hide");
+ $$("#navl a").forEach(a=>a.classList.toggle("on",a.dataset.p===page));
+ if(page==="shop"){
+  F=freshF();const q=new URLSearchParams(qs||"");
+  if(q.get("cat"))F.cats.add(q.get("cat"));
+  if(q.get("sub")){F.subs.add(q.get("sub"))}
+  if(q.get("q"))F.q=q.get("q");
+  if(q.get("stock"))F.stock=true;
+  buildFilters();render();
+ }
+ window.scrollTo(0,0);
+}
+window.addEventListener("hashchange",route);route();
+
+/* ---------- MODALS ---------- */
+function openModal(h){$("#mContent").innerHTML=h;$("#modal").classList.add("open")}
+function closeModal(){$("#modal").classList.remove("open")}
+$("#modal").addEventListener("click",e=>{if(e.target.id==="modal")closeModal()});
+function openQuote(topic){openModal(`<h3>Get in Touch</h3><p>Topic: <b>${topic}</b>. Tell us about your requirement and we'll respond shortly.</p><form onsubmit="event.preventDefault();closeModal();toast('Thank you! We will contact you shortly.')"><input placeholder="Your name" required><input type="email" placeholder="Email address" required><input type="tel" placeholder="Phone number" required><textarea placeholder="Your requirement" required></textarea><button class="btn" style="width:100%">Send Enquiry</button></form>`)}
+function openLogin(e){e&&e.preventDefault();openModal(`<h3>Login / Register</h3><p>Account sign-in is not connected yet in this demo.</p><form onsubmit="event.preventDefault();closeModal();toast('Demo only — no account created')"><input type="email" placeholder="Email address" required><input type="password" placeholder="Password" required><button class="btn" style="width:100%">Continue</button></form>`)}
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeModal();closeDrawer()}});
+$("#yr").textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
